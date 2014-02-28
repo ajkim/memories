@@ -1,0 +1,9 @@
+<p>
+  <%= f.label :image, "Photo" %><br />
+  <%= f.file_field :image, :rows => 3 %><br />
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Photo" %>
+</p>
+<%= f.fields_for :captions do |builder| %>
+  <%= render 'caption_fields', :f => builder %>
+<% end %>

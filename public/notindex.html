@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Memories!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+  </head>
+  
+  <body>
+
+    <%= button_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "signoutlink" %> 
+
+    <!-- A post form! -->
+    <form id="post-form">
+      <input id="first_name-field" placeholder='first_name' type="text">
+      <input id="last_name-field" placeholder='last_name' type="text">
+      <input id="username-field" placeholder='username' type="text">
+      <button id="submit" type="submit"></button>
+      <input id="image-field" placeholder='image' type="text">
+      <button id="submit_image_button" type="submit"></button>
+      <input id="blurb-field" placeholder='blurb' type="text">
+      <button id="submit_blurb_button" type="submit"></button>
+    </form>
+
+
+    <!-- A post list! -->
+    <ul id='post-list'>
+    </ul>
+
+
+    <!-- A post template! -->
+    <script id='postview-template' type='text/template'>
+      <h2><%= first_name %> <%= last_name %></h2>
+      <img src="<%= image %>">
+      <p><%= blurb %></p>
+      <h3><%= username %></h3>
+      <button data-action='update'>Update</button>
+      <button data-action='destroy'>Destroy</button>
+    </script>
+
+
+    <script type="text/javascript" src='javascripts/libraries/jquery.js'></script>
+    <script type="text/javascript" src='javascripts/libraries/underscore.js'></script>
+    <script type="text/javascript" src='javascripts/libraries/backbone.js'></script>
+   <script type="text/javascript" src='javascripts/app.js'></script>
+
+
+  </body>
+
+</html>

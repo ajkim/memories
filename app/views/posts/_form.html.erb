@@ -1,0 +1,14 @@
+<%= form_for @post do |f| %>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+    <%= f.label :blurb %><br />
+    <%= f.text_field :blurb %>
+  </p>
+  <%= f.fields_for :photos do |builder| %>
+    <%= render "photo_fields", :f => builder %>
+  <% end %>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
