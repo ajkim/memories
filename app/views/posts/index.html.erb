@@ -1,2 +1,12 @@
+
 <% @posts.each do |post| %>
-<%= 
+<div class="allpost">
+<%= post.first_name %>
+<%= post.last_name %>
+<%= post.blurb %>
+<% post.photos.each do |photo| %>
+<img class="pf_pic" src='<%= photo.image.url %>'/>
+<% end %>
+</div>
+<% end %>
+

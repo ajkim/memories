@@ -1,10 +1,10 @@
 <%= form_for @post do |f| %>
-  <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-    <%= f.label :blurb %><br />
+  <p><br />
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %><br />
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br />
+    <%= f.label :blurb %>
     <%= f.text_field :blurb %>
   </p>
   <%= f.fields_for :photos do |builder| %>

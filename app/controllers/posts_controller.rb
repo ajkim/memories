@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
 
 	def index
+		@users = User.all
 		@posts = Post.all
-		respond_to do |format|
-			# format.html
-			format.json {render json: @posts}
-		end
+		@photos = Photo.all
+		# respond_to do |format|
+		# 	format.html
+		# 	format.json {render json: @posts}
+		# end
 	end
 
 
@@ -19,16 +21,32 @@ class PostsController < ApplicationController
 
 		3.times do
 			photo = @post.photos.build
-			4.times { photo.captions.build }
 		end
 	end
 
 	# 	 	 POST /posts(.:format)  posts#create
 	def create
-		
+
+
 		new_post = Post.create!(post_params)
 		current_user.posts << new_post
-		render json: {id: new_post.id}
+		# render json: {id: new_post.id}
+
+		photo = Photo.new
+		attributes = params[:post][:photos_attributes]["0"]["image"]
+    pp attributes
+    photo.image = attributes
+    photo.caption = params[:caption]
+
+    new_post.photos << photo
+
+    if photo.save!
+      redirect_to posts_path
+    else
+      render text: "Woops!"
+    end
+
+   
 
 		#upload new image?
 		# post.image = params[:post][:image]
@@ -38,6 +56,12 @@ class PostsController < ApplicationController
 		# 	render text: "Didn't work! Try again"
 		# end
 	end
+
+	def show
+		@post = Post.find(params[:id])
+
+	end
+
 
 	# 	 edit_post GET /posts/:id/edit(.:format)  posts#edit
 	def edit

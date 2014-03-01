@@ -11,6 +11,8 @@ MemoriesApp::Application.routes.draw do
 	resources :posts
 	resources :photos
 
+	resources :users
+	
 	post '/posts/:id/comment' => 'comments#create'
 	post '/posts/:id/image' => 'images#create'
 	post '/posts/:id/photo' => 'photos#create'

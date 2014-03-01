@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 	def index
 		@photos = Photo.all
 		respond_to do |format|
-			# format.html
+			format.html
 			format.json {render json: @photos}
 		end
 	end
@@ -17,10 +17,12 @@ class PhotosController < ApplicationController
 	end
 
 	def create
-		post = Post.find(params[:id])
+
+		post = Post.find(current[:id])
 
 		photo = Photo.new
     photo.image = params[:photo][:image]
+    photo.caption = params[:caption]
     if photo.save!
       render json: photo
     else

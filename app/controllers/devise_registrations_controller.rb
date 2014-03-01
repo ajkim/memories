@@ -1,5 +1,8 @@
 class DeviseRegistrationsController < Devise::RegistrationsController
 
+	def index
+
+	end
 
 	def new
 		super
@@ -18,7 +21,7 @@ class DeviseRegistrationsController < Devise::RegistrationsController
 		user.password = params[:user][:password]
     user.avatar = params[:user][:avatar]
     if user.save!
-      render json: user
+      redirect_to root_path
     else
       render text: "Woops!"
     end

@@ -7,12 +7,9 @@ class Post < ActiveRecord::Base
 	has_many :likes
 	has_many :likers, through: :likes, source: :users
 	has_many :photos
-	accepts_nested_attributes_for :photos
-	has_many :captions
+	accepts_nested_attributes_for :photos, :reject_if => lambda { |a| a[:image].blank? }, :allow_destroy => true
 
 	mount_uploader :image, ImageUploader
-
-
 	# def user_comments(comment)
 	# 	new_comment = Comment.create!(body: comment)
 	# 	self.comments << new_comment
