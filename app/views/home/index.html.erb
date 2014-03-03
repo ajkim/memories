@@ -1,7 +1,12 @@
 <h2>Users</h2>
+<div class="jumbotron" style="width:40%">
 <% @users.each do |user| %>
-<h2><%= user.first_name %></h2>
-<h2><%= user.last_name %></h2>
-<h2><%= user.username %></h2>
-<img class="pf_pic" src='<%= user.avatar %>' />
+<ul style="padding:10px">
+<li style="display:inline">
+<img class="pf_pic" src='<%= user.avatar %>' /></li>
+<li style="display:inline"><%= user.first_name %></li>
+<li style="display:inline"><%= user.last_name %></li>
+<li style="display:inline"><%= user.username %></li>
+</ul>
 <% end %>
+</div>

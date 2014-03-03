@@ -1,11 +1,18 @@
 
 <% @posts.each do |post| %>
-<div class="jumbotron" style="width:40%">
-<%= post.first_name %>
-<%= post.last_name %>
-<%= post.blurb %>
+<div class="jumbotron" style="height:600px;width:75%;text-align:center">
+<li><%= post.user.first_name %></li>
+<li class="pf_pic"><%= post.user.avatar.url %></li>
+<li class="text">
+<h2>I'm with: <h2 id="name"><%= post.first_name %></h2></h2>
+<h2><h2 id="name"><%= post.last_name %></h2></h2>
+<br>
+<h3><%= post.blurb %></h3>
+<h4 id="caption"></h4>
+</li>
 <% post.photos.each do |photo| %>
-<img class="pf_pic" src='<%= photo.image.url %>'/>
+<li class="photo"><img class="post_pic" src='<%= photo.image.url %>'/></li>
+<h4 id="hidden"><%= photo.caption %></h4>
 <% end %>
 </div>
 <% end %>
