@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :username
       t.string :blurb
       t.boolean :single
+      t.integer :user_id
 
       t.timestamps
     end

@@ -25,4 +25,7 @@ class Post < ActiveRecord::Base
 	# 	self.likers << liker
 	# end
 
+	def image_changed?
+	end
+
 end

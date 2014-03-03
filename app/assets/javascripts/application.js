@@ -18,7 +18,7 @@
 
 
 
-	// var $the_posts = $('#the_posts');
+	var $the_posts = $('#the_posts');
 
 	// setTimeout(function(){
 
@@ -29,15 +29,13 @@
 	// 	})
 	// 	.done(function(data){
 	// 		console.log(data)
+	// 		console.log('bom')
 	// 		$.each(data, function(index, post){
 	// 			$the_posts.append('<li>' + post['first_name'] + post['blurb'] + post[:photos_attributes]["0"]["image"] + '</li>')
 	// 		})	
 	// 	})
 
-	// }, 2000)
-
-
-
+	// }, 5000)
 
 
 // });

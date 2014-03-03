@@ -1,7 +1,28 @@
-<% @posts.each do |post| %>
+<% @photos.each do |post| %>
 <%= post.first_name %>
 <%= post.last_name %>
 <%= post.blurb %>
 <%= post.photos.first.image %>
 <% end %>
 
+
+<script>
+	<%= raw %>
+</script>
+
+
+namespacing to create 
+
+<!-- 
+<% @posts.each do |post| %>
+<div class="allpost">
+<%= post.first_name %>
+<%= post.last_name %>
+<%= post.blurb %>
+<% post.photos.each do |photo| %>
+<img class="pf_pic" src='<%= photo.image.url %>'/>
+<% end %>
+</div>
+<% end %>
+
+ -->

@@ -1,14 +1,26 @@
 class PostsController < ApplicationController
 
 	def index
-		@users = User.all
+		# @posts = Post.find_by_sql("SELECT posts.*, photos.* FROM posts full outer JOIN photos ON photos.post_id = posts.id;")
+
 		@posts = Post.all
-		@photos = Photo.all
 
 
 		respond_to do |format|
 			format.html 
-			format.json {render json: @posts}
+			format.json do 
+				data = []
+				@posts.each do |post|
+					post_data = {}
+					post_data['post'] = post
+					post_data['photos'] = []
+					post.photos.each do |photo|
+						post_data['photos'] << photo.image.medium.url
+					end
+					data << post_data
+				end
+				render json: data.to_json
+			end
 		end
 
 	end
@@ -35,20 +47,22 @@ class PostsController < ApplicationController
 		current_user.posts << new_post
 		# render json: {id: new_post.id}
 
-		photo = Photo.new
-		attributes = params[:post][:photos_attributes]["0"]["image"]
-    pp attributes
-    photo.image = attributes
-    photo.caption = params[:caption]
+		params[:post][:photos_attributes].each do |photo_attr|
+		
+			photo = Photo.new
+			attributes = photo_attr[1]['image']
+	    pp attributes
+	    photo.image = attributes
+	    photo.caption = params[:caption]
 
-    new_post.photos << photo
+	    photo.save!
+	    new_post.photos << photo
 
-    if photo.save!
-      redirect_to posts_path
-    else
-      render text: "Woops!"
-    end
+		end
 
+		new_post.save!
+
+		redirect_to posts_path
    
 
 		#upload new image?

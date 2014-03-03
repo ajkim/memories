@@ -39,7 +39,7 @@ gem "fog", "~> 1.3.1"
 
 gem "rails_12factor"
 
-gem 'rmagick', '2.13.2'
+gem 'mini_magick'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -50,3 +50,4 @@ end
 
 gem 'pry'
 gem 'pry-nav'
+

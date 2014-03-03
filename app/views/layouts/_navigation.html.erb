@@ -12,9 +12,9 @@
       <%= link_to 'All Posts', posts_path, class: 'navbar-brand' %>
       <% if user_signed_in? %>
       <%= link_to 'New Post', new_post_path, class: 'navbar-brand' %>
-      <%= link_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "signoutlink" %> 
+      <%= link_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "navbar-brand" %> 
       <% else %>
-      <%= link_to "Sign In", new_user_session_path %>
+      <%= link_to "Sign In", new_user_session_path, class: 'navbar-brand' %>
       <% end %>
     </div>
     <div class="collapse navbar-collapse">

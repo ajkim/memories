@@ -3,7 +3,7 @@
 <% @users.each do |user| %>
 <ul style="padding:10px">
 <li style="display:inline">
-<img class="pf_pic" src='<%= user.avatar %>' /></li>
+<img class="pf_pic" src='<%= user.avatar.thumb.url %>' /></li>
 <li style="display:inline"><%= user.first_name %></li>
 <li style="display:inline"><%= user.last_name %></li>
 <li style="display:inline"><%= user.username %></li>

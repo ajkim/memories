@@ -16,16 +16,7 @@ ActiveRecord::Schema.define(version: 20140301195244) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "captions", force: true do |t|
-    t.integer  "photo_id"
-    t.string   "caption"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "comments", force: true do |t|
-    t.integer  "post_id"
-    t.integer  "user_id"
     t.string   "body"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -39,20 +30,20 @@ ActiveRecord::Schema.define(version: 20140301195244) do
   end
 
   create_table "photos", force: true do |t|
+    t.string   "caption"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
-    t.string   "caption"
   end
 
   create_table "posts", force: true do |t|
-    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
-    t.string   "image"
     t.string   "blurb"
+    t.boolean  "single"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,11 +59,12 @@ ActiveRecord::Schema.define(version: 20140301195244) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
     t.string   "avatar"
   end
 

@@ -21,7 +21,7 @@ class DeviseRegistrationsController < Devise::RegistrationsController
 		user.password = params[:user][:password]
     user.avatar = params[:user][:avatar]
     if user.save!
-      redirect_to root_path
+      redirect_to posts_path
     else
       render text: "Woops!"
     end
