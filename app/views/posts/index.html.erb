@@ -1,6 +1,6 @@
 
 <% @posts.each do |post| %>
-<div class="allpost">
+<div class="jumbotron" style="width:40%">
 <%= post.first_name %>
 <%= post.last_name %>
 <%= post.blurb %>
@@ -10,3 +10,12 @@
 </div>
 <% end %>
 
+<ul id="the-posts">
+</ul>
+
+
+<script>
+var posts = <%= raw @posts.to_json %>
+console.log(posts);
+</script>
+ 

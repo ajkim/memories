@@ -1,10 +1,6 @@
-<p>
+<p class="fields">
   <%= f.label :image, "Photo" %><br />
   <%= f.file_field :image, :rows => 3 %><br />
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove Photo" %><br />
   <%= f.label :caption, "Caption" %><br />
   <%= f.text_field :caption, :rows => 3 %><br />
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove Caption" %>
 </p>

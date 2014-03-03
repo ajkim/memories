@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MemoriesApp</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-	<ul>
-			<li>
-	<% if user_signed_in? %>
-	<%= button_to 'New_Post', new_post_path , :method => :get, :class => "newpostlink" %> 
-	<%= button_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "signoutlink" %> 
-	<% else %>
-	<%= button_to "Sign In", new_user_session_path %>
-	<% end %>
-</li>
-</ul>
-
-
-	<p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-<%= yield %>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Memories App" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Memories App" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+ 
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+  </body>
 </html>

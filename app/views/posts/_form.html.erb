@@ -5,10 +5,11 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name %><br />
     <%= f.label :blurb %>
-    <%= f.text_field :blurb %>
+    <%= f.text_area :blurb %>
   </p>
   <%= f.fields_for :photos do |builder| %>
     <%= render "photo_fields", :f => builder %>
   <% end %>
+  <p><%= link_to_add_fields "Add Photos", f, :photos %></p>
   <p><%= f.submit "Submit" %></p>
 <% end %>

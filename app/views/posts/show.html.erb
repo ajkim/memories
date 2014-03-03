@@ -1,5 +1,30 @@
-<%= post.first_name %>
-<%= post.last_name %>
-<%= post.blurb %>
-<%= post.photos.first.image %>
+<div class="jumbotron">
+<% pics = ["http://placekitten.com/300/400", "http://placekitten.com/225/430", "http://placekitten.com/435/255"] %>
+<% pics.map do |pic| %>
+<div class="photo"><img class="pf_pic" src='<%= pic %>'/></div>
+<% end %>
+
+<div class="blurb"><p> some nice long sentence </p></div>
+
+</div>
+
+
+
+<script>
+
+$(document).ready(function(){ 
+
+	setTimeout(function(){ 
+		$('.pf_pic').fadeOut();}, 2000); 
+
+	setTimeout(function(){ 
+		$('.pf_pic').fadeIn();}, 4000); 
+
+	setTimeout(function(){ 
+		$('.pf_pic').slideUp();}, 3000); 
+});
+
+
+</script>
+
 

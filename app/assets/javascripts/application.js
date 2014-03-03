@@ -13,4 +13,46 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+
+
+
+
+	// var $the_posts = $('#the_posts');
+
+	// setTimeout(function(){
+
+	// 	$.ajax({
+	// 		url: '/posts',
+	// 		method: 'GET',
+	// 		dataType: 'json'
+	// 	})
+	// 	.done(function(data){
+	// 		console.log(data)
+	// 		$.each(data, function(index, post){
+	// 			$the_posts.append('<li>' + post['first_name'] + post['blurb'] + post[:photos_attributes]["0"]["image"] + '</li>')
+	// 		})	
+	// 	})
+
+	// }, 2000)
+
+
+
+
+
+// });
+
+
+function remove_fields(link) {
+  $(link).previous("input[type=hidden]").value = "1";
+  $(link).up(".fields").hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).up().insert({
+    before: content.replace(regexp, new_id)
+  });
+}

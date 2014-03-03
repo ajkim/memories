@@ -4,10 +4,13 @@ class PostsController < ApplicationController
 		@users = User.all
 		@posts = Post.all
 		@photos = Photo.all
-		# respond_to do |format|
-		# 	format.html
-		# 	format.json {render json: @posts}
-		# end
+
+
+		respond_to do |format|
+			format.html 
+			format.json {render json: @posts}
+		end
+
 	end
 
 
@@ -58,8 +61,14 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
+		# @post = Post.find(params[:id])
 
+		@posts = Post.all
+
+			respond_to do |format|
+			format.html
+			format.json {render json: @posts}
+		end
 	end
 
 
