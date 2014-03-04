@@ -6,11 +6,10 @@ MemoriesApp::Application.routes.draw do
 
 	root :to => "home#index"
 
-	post '/user/:id/show' => 'users#show'
+	# post '/user/:id/show' => 'users#show'
 
 	resources :posts
 	resources :photos
-
 	resources :users
 	
 	post '/posts/:id/comment' => 'comments#create'

@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min.js
+//= require bootstrap.min.js
 //= require turbolinks
-//= require_tree .
+//= require memories.js
+//= require_tree .	
 
 
 

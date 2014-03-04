@@ -14,8 +14,10 @@ class PostsController < ApplicationController
 					post_data = {}
 					post_data['post'] = post
 					post_data['photos'] = []
+					post_data['captions'] = []
 					post.photos.each do |photo|
 						post_data['photos'] << photo.image.medium.url
+						post_data['captions'] << photo.caption
 					end
 					data << post_data
 				end
@@ -51,9 +53,10 @@ class PostsController < ApplicationController
 		
 			photo = Photo.new
 			attributes = photo_attr[1]['image']
+			caption = photo_attr[1]['caption']
 	    pp attributes
 	    photo.image = attributes
-	    photo.caption = params[:caption]
+	    photo.caption = caption
 
 	    photo.save!
 	    new_post.photos << photo
@@ -62,7 +65,7 @@ class PostsController < ApplicationController
 
 		new_post.save!
 
-		redirect_to posts_path
+		redirect_to post_path(new_post)
    
 
 		#upload new image?
@@ -75,35 +78,24 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		# @post = Post.find(params[:id])
+		@post = Post.find(params[:id])
 
-
-		# 	respond_to do |format|
-		# 	format.html
-		# 	format.json {render json: @post}
-		# end
-
-		@posts = Post.all
-
-
+		
 		respond_to do |format|
 			format.html 
 			format.json do 
-				data = []
-				@posts.each do |post|
-					post_data = {}
-					post_data['post'] = post
-					post_data['photos'] = []
-					post.photos.each do |photo|
-						post_data['photos'] << photo.image.medium.url
-					end
-					data << post_data
+				post_data = {}
+				post_data['post'] = @post
+				post_data['photos'] = []
+				post_data['captions'] = []
+				@post.photos.each do |photo|
+					post_data['photos'] << photo.image.medium.url
+					post_data['captions'] << photo.caption
 				end
-				render json: data.to_json
+				render json: post_data.to_json
 			end
 		end
-
-	end
+end
 
 
 	# 	 edit_post GET /posts/:id/edit(.:format)  posts#edit

@@ -1,0 +1,112 @@
+.start{
+	height: 600px;
+	padding-left: 80px;
+	padding-right: 60px;
+	margin-left: 10%;
+}
+
+.postcard{
+	width: 600px;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+.user-heading{
+	margin-left: 100px;
+	color:#003859;
+
+}
+
+.post-title{
+	color:#48D7B0;
+}
+
+body{
+	background-color: #F0F8FF;
+}
+
+.div_img{
+	width: 300px;
+	position: relative;
+}
+/*
+#the-posts{
+	width:400px;
+	height:500px;
+	display:inline-block;
+	float:left;
+}*/
+
+.pf_pic{
+	border-radius: 100%;
+	height:80px;
+	width:80px;
+	float:left;
+	position: absolute;
+	padding: 10px;
+}
+
+#id{
+	float: left;
+
+}
+
+#title {
+	color:#00AB84;
+	font-size:30px;
+	font-family: 'Bad Script', cursive;
+
+}
+
+.blurb{
+	font-family: 'Bad Script', cursive;
+	height:200px;
+	width:400px;
+	border:1px solid #FEC171;
+	border-radius:25px;
+	padding:.5em;
+	clear:right;
+	display: inline-block;
+	margin-left: 20px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.post_pic{
+	margin-top: 30px;
+	height:400px;
+	width:400px;
+	border:1px solid #FEC171;
+	border-radius:25px;
+	padding:.5em;
+}
+
+.text{
+	padding:.5em;
+	height:500px;
+	width:400px;
+	display:inline-block;
+	float:right;
+	border:1px solid;
+	border-radius:25px;
+	text-align: center;
+}
+
+.photo{
+	width:400px;
+	height:500px;
+	display:inline-block;
+	float:left;
+
+}
+
+#name{
+	display: inline;
+	padding:5px;
+	color: #043057;
+}
+
+#username{
+	display:inline;
+	padding:5px;
+	color:#00AB84;

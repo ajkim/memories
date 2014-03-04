@@ -1,26 +1,28 @@
 <%# navigation styled for Bootstrap 3.0 %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
-      <%= link_to 'All Posts', posts_path, class: 'navbar-brand' %>
-      <% if user_signed_in? %>
-      <%= link_to 'New Post', new_post_path, class: 'navbar-brand' %>
-      <%= link_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "navbar-brand" %> 
-      <% else %>
-      <%= link_to "Sign In", new_user_session_path, class: 'navbar-brand' %>
-      <% end %>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-    </div>
-  </div>
+     <%= link_to 'MEMZEEZ', root_path, class: 'navbar-brand' %>
+   </div>
+   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  
+  <ul class="nav navbar-nav pull-right visible-md visible-lg visible-sm">
+    <li><%= link_to 'All Posts', posts_path, class: 'navbar-brand' %></li>
+    <% if user_signed_in? %>
+    <li><%= link_to 'New Post', new_post_path, class: 'navbar-brand' %></li>
+    <li><%= link_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "navbar-brand" %></li> 
+    <% else %>
+    <li><%= link_to "Sign In", new_user_session_path, class: 'navbar-brand' %></li>
+  </ul>
+  <% end %>
+</div>
+<div class="collapse navbar-collapse">
+  <ul class="nav navbar-nav">
+    <%= render 'layouts/navigation_links' %>
+  </ul>
+
 </nav>
