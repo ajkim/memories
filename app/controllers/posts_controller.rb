@@ -77,12 +77,32 @@ class PostsController < ApplicationController
 	def show
 		# @post = Post.find(params[:id])
 
+
+		# 	respond_to do |format|
+		# 	format.html
+		# 	format.json {render json: @post}
+		# end
+
 		@posts = Post.all
 
-			respond_to do |format|
-			format.html
-			format.json {render json: @posts}
+
+		respond_to do |format|
+			format.html 
+			format.json do 
+				data = []
+				@posts.each do |post|
+					post_data = {}
+					post_data['post'] = post
+					post_data['photos'] = []
+					post.photos.each do |photo|
+						post_data['photos'] << photo.image.medium.url
+					end
+					data << post_data
+				end
+				render json: data.to_json
+			end
 		end
+
 	end
 
 

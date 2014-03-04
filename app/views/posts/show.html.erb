@@ -1,31 +1,10 @@
-<div class="jumbotron">
-<% pics = ["http://placekitten.com/300/400", "http://placekitten.com/225/430", "http://placekitten.com/435/255"] %>
-<% pics.map do |pic| %>
-<li class="photo" style="display:inline;height:200px"><img class="post_pic" src='<%= pic %>'/></div>
-<% end %>
-
-<div class="blurb"> <li style="display:inline;height:200px"><p> some nice long sentence </p></li></div>
-
-</div>
 
 
-
-<script>
-
-$(document).ready(function(){ 
-
-	setTimeout(function(){ 
-		$('.pf_pic').fadeOut();}, 2000); 
-
-	setTimeout(function(){ 
-		$('.pf_pic').fadeIn();}, 4000); 
-
-	setTimeout(function(){ 
-		$('.pf_pic').slideUp();}, 3000); 
-
-
-});
-
+<script id='show-post' type='text/x-handlebars-template'>
+	<h1>{{name}}</h1>
+	<h4 class="caption">{{blurb}}</h4>
+	<img class="post_pic" src={{imgURL}}/>
+	<p></p>
 
 </script>
 
