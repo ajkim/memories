@@ -11,12 +11,12 @@
   </button>
   
   <ul class="nav navbar-nav pull-right visible-md visible-lg visible-sm">
-    <li><%= link_to 'All Posts', posts_path, class: 'navbar-brand' %></li>
+    <li><%= link_to 'All Posts', posts_path, class: 'active' %></li>
     <% if user_signed_in? %>
-    <li><%= link_to 'New Post', new_post_path, class: 'navbar-brand' %></li>
-    <li><%= link_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "navbar-brand" %></li> 
+    <li><%= link_to 'New Post', new_post_path, class: 'active' %></li>
+    <li><%= link_to 'Sign_Out', destroy_user_session_path , :method => :delete, :class => "active" %></li> 
     <% else %>
-    <li><%= link_to "Sign In", new_user_session_path, class: 'navbar-brand' %></li>
+    <li><%= link_to "Sign In", new_user_session_path, class: 'active' %></li>
   </ul>
   <% end %>
 </div>
@@ -24,5 +24,8 @@
   <ul class="nav navbar-nav">
     <%= render 'layouts/navigation_links' %>
   </ul>
+
+  <div class=".navbar-fixed-bottom">
+  </div>
 
 </nav>

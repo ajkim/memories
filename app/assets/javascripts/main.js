@@ -48,6 +48,9 @@ load = function(){
         $('.container').html('')
 
         $.each(data, function(idx, post_ele){
+
+    var avatar = $("<div class='photo'>");
+    avatar.append($("<img class='pf_pic' src="+post_ele['post']['avatar']+"/>"));
     //new p element where we will append the post's first name
     var new_postcard = $("<div class='start'>");
     // new_postcard.style.width=1150+"px";
@@ -108,7 +111,7 @@ function renderPostcard(post_ele, el){
  new_postcard.append(new_img)
 
   var new_blurb = $("<div class='blurb'>");
-  new_blurb.append($('<h3 class="blurb" id="post_'+ post_ele['post']['id']+'">'+post_ele['post']['blurb']+'</h4>'));
+  new_blurb.append($('<h3 class="blurb_post" id="post_'+ post_ele['post']['id']+'">'+post_ele['post']['blurb']+'</h4>'));
   new_postcard.append(new_blurb)
  
  if (post_ele['captions']){

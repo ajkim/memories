@@ -1,57 +1,10 @@
-<!-- 
-
-<% @posts.each do |post| %>
 
 
-<% if post.user %>
-<li class="pf_pic"><img class="pf_pic" src='<%= post.user.avatar.thumb.url %>'/></li>
-	<li id="user"><%= post.user.first_name %></li>
-	<div class="jumbotron" style="height:600px;width:75%;text-align:center">
-
-	
-	
-
-	<li class="text">
-	<h2>I'm with: 
-		<h2 id="name"><%= post.first_name %></h2>
-	</h2>
-
-	<h2>
-		<h2 id="name"><%= post.last_name %>
-		</h2>
-	</h2>
-	<br>
-	<h3><%= post.blurb %></h3>
-	<h4 id="caption"></h4>
-	</li>
-	<% post.photos.each do |photo| %>
-	
-		<li class="photo">
-			<img class="post_pic" src='<%= photo.image.medium.url %>'/>
-		</li>
-		<h4 id="hidden"><%= photo.caption %>
-		</h4>
-		<% end %>
-		</div>
-	<% end %>
-<% end %>
-
-<ul id="the-posts">
-</ul>
- -->
-
- <br>
- <br>
- <div class="container">
- 	<br>
- 	<br>
-
-
-
-</div>
 <script>
 	$(function() {
+
 		loadAll();
 	});
 </script>
+
  

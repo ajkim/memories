@@ -1,8 +1,8 @@
 
 <h2>Users</h2>
 <% @users.each do |user| %>
-<div class="jumbotron">
-<ul style="padding:10%">
+<div class="users">
+<ul class="avatar">
 <img class="pf_pic" src='<%= user.avatar.thumb.url %>' /></li>
 <h3 id="name"><%= user.first_name %></h3
 >
