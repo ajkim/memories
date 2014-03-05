@@ -19,12 +19,13 @@ letter-spacing: 1px;
 }
 
 .start{
-	width:1086px;
+	width:1060px;
 	height:600px;
-	margin-right: 10%;
+	margin-right: 20%;
 	margin-left: 10%;
-	border:5px dotted #E6E3CD;
+	border:5px dotted #F45D4C;
 	padding:2em;
+	text-align: center;
 }
 
 h1{
@@ -52,12 +53,8 @@ h1{
 
 .user-heading{
 	margin-left: 100px;
-	color:#003859;
+	color:#00AB84;
 
-}
-
-.post-title{
-	color:#48D7B0;
 }
 
 body{
@@ -67,6 +64,10 @@ body{
 .div_img{
 	width: 300px;
 	position: relative;
+}
+
+#why{
+	color: #00AB84;
 }
 /*
 #the-posts{
@@ -81,8 +82,8 @@ body{
 	height:80px;
 	width:80px;
 	display: inline-block;
-	padding: 10px;
 	vertical-align: top;
+	border: 1px solid #E6E3CD;
 }
 
 #username{
@@ -95,8 +96,10 @@ body{
 }
 
 #title {
-	color:#00AB84;
-	font-size:30px;
+	color: rgba(0, 171, 132, .65);
+	margin-left: 2em;
+	font-style: bold;
+	font-size:50px;
 	font-family: 'Bad Script', cursive;
 
 }
@@ -109,24 +112,26 @@ body{
 	padding:.5em;
 	clear:right;
 	display: inline-block;
-	margin-left: 20px;
+	margin-left: 3em;
 	margin-bottom: -50px;
 	text-align: center;
 }
 
 
 .caption{
-	margin: 3em;
+	margin: 1em;
 	font-size: 24px;
 }
 
 .post_pic{
 	margin-top: 30px;
-	height:400px;
-	width:400px;
+	margin-left: 2em;
+	height:350px;
+	width:350px;
 	border:1px solid #00AAB5;
 	border-radius:25px;
 	padding:.5em;
+	float:left;
 }
 
 .text{
@@ -141,8 +146,8 @@ body{
 }
 
 .photo{
-	width:400px;
-	height:500px;
+	width:350px;
+	height:350px;
 	display:inline-block;
 	float:left;
 }

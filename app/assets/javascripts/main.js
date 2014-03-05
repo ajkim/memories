@@ -12,8 +12,6 @@
 // })
 
 
-
-
 function setImageSwitching(post_id, image_array, milliseconds){
 
   var $img = $('#post_'+ post_id)[0];
@@ -22,10 +20,16 @@ function setImageSwitching(post_id, image_array, milliseconds){
     if(image_array[0]){
       $img.src = image_array[0]
       image_array.push(image_array.shift())
-    }
-  }, milliseconds)
 
+//     var rand = 1 + Math.floor(Math.random() * 7) * 1000;//max of random 7 seconds
+    
+//     setTimeout(function() {
+//       $(img.src).fadeIn(rand).delay(300).fadeOut(rand); 
+//     }, rand);
+   }
+}, milliseconds)
 }
+
 
 function setCaptionSwitching(el, caption_array, milliseconds){
  setInterval(function(){
@@ -66,18 +70,23 @@ new_blurb.append($('<h4 class="caption" id="post_'+ post_ele['post']['id']+'">'+
 var username = $("<h3 class='user'>");
 var user = username.append($("<h5 id='username'>"+ post_ele['post']['username']+"</h5>"));
 var avatar = $("<div class='photo'>");
-var pf_pic = avatar.append($("<img class='pf_pic' src="+post_ele['post']['avatar']+"/>"));
+var pf_pic = avatar.append($("<img class='pf_pic' src="+post_ele['post']['avatar']+">"));
 
           // First image src and animations 
           if (post_ele['photos'] ){
             new_img.src = post_ele['photos'][0];
+            new_img = new_img.src;
             // new_caption = post_ele['photos'][0]['caption'];
           }
-          new_img.hide()
-
+          function fadeInLastImg()
+          {
+          new_img.hide();
+          new_img.remove();
+          $('.post_pic').append(new_img);
+          }
           new_postcard.append(new_img)
           new_img.load(function(){
-            new_img.fadeIn(10000)
+            new_img.fadeIn(10000);
           })
 
 
@@ -108,10 +117,11 @@ function renderPostcard(post_ele, el){
   }
   new_img.attr("opacity", "0")  
   new_img.load(function(){
-    new_img.fadeIn(10000)
+    new_img.fadeIn(1000)
   })
 
-  new_postcard.append(new_img)
+  new_postcard.append(new_img);
+  new_img.fadeIn(10000);
 
 
   var username = $("<h3 class='user'>");
@@ -120,11 +130,14 @@ function renderPostcard(post_ele, el){
 
   var new_blurb = $("<div class='blurb'>");
   new_blurb.append(user);
-  new_blurb.append($('<h3 class="blurb_post" id="post_'+ post_ele['post']['id']+'">'+post_ele['post']['blurb']+'</h4>'));
+  new_blurb.append($('<h3 class="blurb_post" id="post_'+ post_ele['post']['id']+'">About '+post_ele['post']['first_name']+' '+post_ele['post']['last_name']+': '+post_ele['post']['blurb']+'</h4>'));
   new_postcard.append(new_blurb)
 
 
  if (post_ele['captions']){
+  var why = $('<br><h4 id="why"> Milestones: </h4>');
+  new_blurb.append(why);
+
  for (var i=0;i<post_ele['captions'].length;i++){
   var new_caption = $('<h4 class="caption" id="post_'+ post_ele['post']['id']+'">'+ post_ele['captions'][i]+ '</h4>');
   // var two_caption = $('<h4 class="caption" id="post_'+ post_ele['post']['id']+'">'+ post_ele['captions'][1]+ '</h4>');
