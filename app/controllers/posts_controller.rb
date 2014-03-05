@@ -13,6 +13,8 @@ class PostsController < ApplicationController
 				@posts.each do |post|
 					post_data = {}
 					post_data['post'] = post
+					post_data['avatar'] = post.user.avatar.medium.url
+					post_data['username'] = post.user.username
 					post_data['photos'] = []
 					post_data['captions'] = []
 					post.photos.each do |photo|
@@ -21,7 +23,7 @@ class PostsController < ApplicationController
 					end
 					data << post_data
 				end
-				render json: data.to_json
+				render json: data.reverse.to_json
 			end
 		end
 

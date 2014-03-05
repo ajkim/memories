@@ -19,10 +19,12 @@ letter-spacing: 1px;
 }
 
 .start{
+	width:1086px;
 	height:600px;
-	padding-left: 80px;
-	padding-right: 60px;
+	margin-right: 10%;
 	margin-left: 10%;
+	border:5px dotted #E6E3CD;
+	padding:2em;
 }
 
 h1{
@@ -80,6 +82,11 @@ body{
 	width:80px;
 	display: inline-block;
 	padding: 10px;
+	vertical-align: top;
+}
+
+#username{
+	margin-top: 30%;
 }
 
 #id{
@@ -98,22 +105,17 @@ body{
 	font-family: 'Bad Script', cursive;
 	height:200px;
 	width:400px;
-	border:1px solid #E6E3CD;
 	border-radius:40px;
 	padding:.5em;
 	clear:right;
 	display: inline-block;
 	margin-left: 20px;
-	margin-bottom: 50px;
+	margin-bottom: -50px;
 	text-align: center;
 }
 
-.blurb_post{
-	border:1px dotted #D71B29;
-}
 
 .caption{
-	border:1px dotted #6E384B;
 	margin: 3em;
 	font-size: 24px;
 }
