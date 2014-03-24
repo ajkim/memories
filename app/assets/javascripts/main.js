@@ -53,25 +53,6 @@ load = function(){
 
         $.each(data, function(idx, post_ele){
  
-    //new p element where we will append the post's first name
-    var new_postcard = $("<div class='start'>");
-    // new_postcard.style.width=1150+"px";
-    new_postcard.append($('<div id="title">'+post_ele['post']['first_name']+' '+post_ele['post']['last_name']+'</div>'));
-//new img
-var div_img = $('<div class="div_img">');
-var new_img = $('<img class="post_pic" id="post_'+ post_ele['post']['id'] +'"/>');
-div_img.append(new_img.append($('<h3>'+post_ele)));
-
-post_id = post_ele['post']['id'];
-
-var new_blurb = $("<div class='blurb'>");
-new_blurb.append($('<h4 class="caption" id="post_'+ post_ele['post']['id']+'">'+['post']['blurb']+'</h4>+<br>'));
-
-var username = $("<h3 class='user'>");
-var user = username.append($("<h5 id='username'>"+ post_ele['post']['username']+"</h5>"));
-var avatar = $("<div class='photo'>");
-var pf_pic = avatar.append($("<img class='pf_pic' src="+post_ele['post']['avatar']+">"));
-
           // First image src and animations 
           if (post_ele['photos'] ){
             new_img.src = post_ele['photos'][0];
@@ -107,8 +88,13 @@ var pf_pic = avatar.append($("<img class='pf_pic' src="+post_ele['post']['avatar
 }
 
 function renderPostcard(post_ele, el){
+  var feed = $("<h1 class='feed'>");
   var new_postcard = $("<div class='start'>");
-  new_postcard.append($('<div id="title">'+post_ele['post']['first_name']+' '+post_ele['post']['last_name']+'</div>'));
+  var username = $("<h3 class='user'>");
+  var user = username.append($("<h5 id='username'>"+ post_ele['username']+"</h5>"));
+  user.prepend($("<img class='pf_pic' src="+post_ele['avatar']+">"));
+  new_postcard.append(user)
+  .append($('<div id="title">'+post_ele['post']['first_name']+' '+post_ele['post']['last_name']+'</div>'));
  
 // First image src and animations 
   var new_img = $('<img class="post_pic" id="post_'+ post_ele['post']['id'] +'"/>');
@@ -123,19 +109,14 @@ function renderPostcard(post_ele, el){
   new_postcard.append(new_img);
   new_img.fadeIn(10000);
 
-
-  var username = $("<h3 class='user'>");
-  var user = username.append($("<h5 id='username'>"+ post_ele['username']+"</h5>"));
-  user.prepend($("<img class='pf_pic' src="+post_ele['avatar']+">"));
-
   var new_blurb = $("<div class='blurb'>");
-  new_blurb.append(user);
+  // new_blurb.append(user);
   new_blurb.append($('<h3 class="blurb_post" id="post_'+ post_ele['post']['id']+'">About '+post_ele['post']['first_name']+' '+post_ele['post']['last_name']+': '+post_ele['post']['blurb']+'</h4>'));
   new_postcard.append(new_blurb)
 
 
  if (post_ele['captions']){
-  var why = $('<br><h4 id="why"> Milestones: </h4>');
+  var why = $('<h4 id="why"> Milestones: </h4>');
   new_blurb.append(why);
 
  for (var i=0;i<post_ele['captions'].length;i++){
