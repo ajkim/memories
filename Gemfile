@@ -37,9 +37,11 @@ gem 'nokogiri', '~> 1.5.0'
 
 gem "fog", "~> 1.3.1"
 
-gem "rails_12factor"
+gem "rails_12factor", group: :production
 
 gem 'mini_magick'
+
+gem 'sprockets_better_errors'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

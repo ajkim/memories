@@ -4,15 +4,28 @@
 	background-color: rgba(255, 255, 255, .65);
 }
 
+.navbar-header{
+	margin-left: 19%;
+}
+
+.nav navbar-nav pull-right ul{
+	margin-right: 70px;
+}
+
+ul.nav{
+	margin-right: 20%;
+}
+
 .navbar-brand
 {
 color: rgba(255, 255, 255, .65);
 color:#4F727A;
-font-size: 32px;
+font-size: 28px;
 font-family: 'Bad Script';
 padding-top: -5px;
 padding-left: -30px;
 letter-spacing: 1px;
+height:50px;
 }
 
 .active{
@@ -23,8 +36,8 @@ letter-spacing: 1px;
 .start{
 	width:860px;
 	height:400px;
-	margin-right: 20%;
-	margin-left: 10%;
+	margin-right: 30%;
+	margin-left: 20%;
 	border:5px dotted #F45D4C;
 	padding:2em;
 	text-align: center;
