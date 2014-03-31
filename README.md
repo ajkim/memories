@@ -1,10 +1,9 @@
 #MEMZEEZ APP#
 
-
 Purpose:  For the storage and commemoration of special moments and of loved ones.
 
 
----------------------------
+
 
 ##KEY GEMS USED##
 
