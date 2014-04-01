@@ -15,7 +15,7 @@
 //= require bootstrap.min.js
 //= require bootstrap.min.js
 //= require turbolinks
-//= require memories.js
+//= require main.js
 //= require_tree .	
 
 
